@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card">
+        <h1 class="title"> Login</h1>
+          <form>
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput placeholder="Enter your email" [formControl]= "email" [(ngModel)]= "loginData.email" name="email"  required>
+                    <mat-icon matPrefix >account_circle</mat-icon>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field><br/><br/>
+                <mat-form-field>
+                    <input matInput placeholder="Enter your password" [type]= "hide ? 'password' : 'text' " [(ngModel)]= "loginData.password"  name ="password" required >
+                    <mat-icon matSuffix (click)="hide = !hide" >{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="button-container">
+              <button (click)="post()" >GO</button>
+            </div>
+            <div class="footer"><a href="#">Forgot your password?</a></div>
+          </form>
+    </div>
+  </div>
